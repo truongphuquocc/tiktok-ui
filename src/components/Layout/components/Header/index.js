@@ -36,12 +36,12 @@ const MENU_ITEMS = [
             title: 'language',
             data: [
                 {
-                    type: 'laguage',
+                    type: 'language',
                     code: 'en',
                     title: 'english',
                 },
                 {
-                    type: 'laguage',
+                    type: 'language',
                     code: 'vi',
                     title: 'Tieng viet',
                 },
@@ -72,7 +72,7 @@ function Header() {
     // Handel logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
-            case 'laguage':
+            case 'language':
                 break;
             default:
         }
@@ -99,6 +99,7 @@ function Header() {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',
             to: '/logout',
+            separate: true,
         },
     ];
 
