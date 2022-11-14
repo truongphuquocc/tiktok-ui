@@ -11,7 +11,6 @@ import {
     faCircleQuestion,
     faKeyboard,
     faSpinner,
-    faUpload,
     faUser,
     faCoins,
     faGear,
@@ -25,6 +24,8 @@ import styles from './Header.module.scss';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import 'tippy.js/dist/tippy.css';
+import { UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -140,7 +141,7 @@ function Header() {
                         <>
                             <Tippy delay={[0, 250]} content="upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -153,10 +154,11 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 alt="Nguyen Van A"
-                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/11c538fefc7083eeaaf4c393e9731b1d~c5_100x100.jpeg?x-expires=1668560400&x-signature=WQVGjyOFBE7R3GsL%2BVmFkvt8eT4%3D"
+                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/11c538fefc7083eeaaf4c393e9731b1d~c5_100x100.jpeg?x-expires=1668560400&x-signature=WQVGjyOFBE7R3GsL%2BVmvt8eT4%3D"
+                                fallback="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/275760548_2850506325259294_1135856733131955528_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wuQLzXiTCR0AX_YUROJ&_nc_ht=scontent.fdad3-5.fna&oh=00_AfAGtCaukmDGQCBIAUzXtTur4LQolhRwEZimSeTGtIrqcA&oe=6376F995"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
