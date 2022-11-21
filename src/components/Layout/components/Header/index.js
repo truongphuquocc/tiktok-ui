@@ -134,7 +134,7 @@ function Header() {
                                 className={cx('user-avatar')}
                                 alt="Nguyen Van A"
                                 src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/11c538fefc7083eeaaf4c393e9731b1d~c5_100x100.jpeg?x-expires=1668560400&x-signature=WQVGjyOFBE7R3GsL%2BVmvt8eT4%3D"
-                                fallback="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/275760548_2850506325259294_1135856733131955528_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wuQLzXiTCR0AX_YUROJ&_nc_ht=scontent.fdad3-5.fna&oh=00_AfAGtCaukmDGQCBIAUzXtTur4LQolhRwEZimSeTGtIrqcA&oe=6376F995"
+                                fallback="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/275760548_2850506325259294_1135856733131955528_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=0CFnneucUU0AX8BUMcp&_nc_ht=scontent.fdad3-5.fna&oh=00_AfCU_BVm1OeXlE8nY00Lhjz5A58y3kjr8zXZUpE4AXp3Uw&oe=6380DCD5"
                             />
                         ) : (
                             <button className={cx('more-btn')}>
