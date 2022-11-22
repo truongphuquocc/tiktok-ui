@@ -1,11 +1,13 @@
+import PropTypes from 'prop-types';
 import Button from '~/components/Button';
 
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
+import Menu from '.';
 
 const cx = classNames.bind(styles);
 
-function Header({ data, onClick }) {
+function MenuItem({ data, onClick }) {
     const classes = cx('menu-item', {
         separate: data.separate,
     });
@@ -16,4 +18,9 @@ function Header({ data, onClick }) {
     );
 }
 
-export default Header;
+MenuItem.propTypes = {
+    data: PropTypes.object.isRequired,
+    onClick: PropTypes.func,
+};
+
+export default MenuItem;
