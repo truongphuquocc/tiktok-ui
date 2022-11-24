@@ -6,6 +6,7 @@
     font-weight: 700;
     font-family: var(--font-family);
     padding: 9px 16px;
+    height: 36px;
     min-width: 100px;
     border-radius: 4px;
     cursor: pointer;
@@ -68,7 +69,6 @@
 
 .text {
     border: 1px solid rgba(22, 24, 35, 0.12);
-    max-height: 99px;
     &:hover {
         text-decoration: none;
         background-color: rgba(22, 24, 35, 0.03);

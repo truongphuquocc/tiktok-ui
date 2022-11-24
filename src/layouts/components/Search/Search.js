@@ -1,15 +1,15 @@
-import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { useEffect, useState, useRef } from 'react';
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
-import * as searchServices from '~/Services/searchService';
-import styles from './Search.module.scss';
+import * as searchServices from '~/services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
-import HeadlessTippy from '@tippyjs/react/headless';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
+import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -24,7 +24,7 @@ function Search() {
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debouncedValue) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
@@ -35,7 +35,6 @@ function Search() {
             const result = await searchServices.search(debouncedValue);
 
             setSearchResult(result);
-
             setLoading(false);
         };
 
@@ -43,8 +42,8 @@ function Search() {
     }, [debouncedValue]);
 
     const handleClear = () => {
-        setSearchResult('');
-        setSearchValue([]);
+        setSearchValue('');
+        setSearchResult([]);
         inputRef.current.focus();
     };
 
@@ -55,15 +54,16 @@ function Search() {
     const handleChange = (e) => {
         const searchValue = e.target.value;
         if (!searchValue.startsWith(' ')) {
-            setSearchValue(e.target.value);
+            setSearchValue(searchValue);
         }
     };
 
     return (
+        // Using a wrapper <div> tag around the reference element solves
+        // this by creating a new parentNode context.
         <div>
             <HeadlessTippy
                 interactive
-                appendTo={() => document.body}
                 visible={showResult && searchResult.length > 0}
                 render={(attrs) => (
                     <div className={cx('search-result')} tabIndex="-1" {...attrs}>
@@ -91,7 +91,6 @@ function Search() {
                             <FontAwesomeIcon icon={faCircleXmark} />
                         </button>
                     )}
-
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
